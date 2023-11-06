@@ -6,3 +6,7 @@
     fill: #000;
     transform: translateX(5px);
 }
+
+.card:hover img {
+  transform: translateY(5px);
+}

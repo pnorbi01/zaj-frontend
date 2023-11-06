@@ -33,7 +33,7 @@ export default function App() {
             </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4 font-bold uppercase" justify="end">
+        <NavbarContent className="hidden sm:flex gap-10 font-bold uppercase" justify="end">
             <NavbarBrand>
             <p className="font-bold text-inherit">ZAJ</p>
             </NavbarBrand>
