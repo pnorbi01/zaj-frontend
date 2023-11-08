@@ -26,7 +26,7 @@ function Hero() {
                     Srbobranski put 8, Bačko Gradište
                 </Chip>
                 <span className="animate-[fade_0.5s_ease-in] bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center opacity-0 font-display text-4xl font-bold tracking-[-0.02em] text-transparent opacity-1 drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[4rem] p-2" style={{animationDelay: '0.10s', animationFillMode: 'forwards'}}>Kuću pretvorite u Vaš najtopliji dom.</span>
-                <span className="animate-[fade_0.5s_ease-in] text-center text-gray-500 opacity-0 [text-wrap:balance] md:text-xl z-10" style={{animationDelay: '0.25s', animationFillMode: 'forwards'}}>Some description about company. Some description about company. Some description about company.</span>
+                <span className="animate-[fade_0.5s_ease-in] text-center text-gray-500 opacity-0 [text-wrap:balance] md:text-xl z-10" style={{animationDelay: '0.25s', animationFillMode: 'forwards'}}>Sanjajte to - Ostalo prepustite nama.</span>
                 <div className="flex animate-[fade_0.5s_ease-in] flex-row justify-center items-center opacity-0 gap-4 z-10" style={{animationDelay: '0.35s', animationFillMode: 'forwards'}}>
                     <div className="group flex flex-row justify-center items-center gap-3 rounded-full border border-gray-800 bg-black px-5 py-2 text-sm text-white transition-all hover:bg-white hover:text-black hover:cursor-pointer">
                         Početi

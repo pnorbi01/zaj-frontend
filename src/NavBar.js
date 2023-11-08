@@ -1,5 +1,6 @@
 import React from "react";
 import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
+import logo from "./images/logo.png";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -29,13 +30,13 @@ export default function App() {
 
         <NavbarContent className="sm:hidden pr-3" justify="center">
             <NavbarBrand>
-            <p className="font-bold text-inherit">ZAJ</p>
+                <img src={logo} alt="ZAJ logo" width={100} height={100} />
             </NavbarBrand>
         </NavbarContent>
 
         <NavbarContent className="hidden sm:flex gap-10 font-bold uppercase" justify="end">
             <NavbarBrand>
-            <p className="font-bold text-inherit">ZAJ</p>
+                <img src={logo} alt="ZAJ logo" width={100} height={100} />
             </NavbarBrand>
             <NavbarItem>
             <Link color="foreground" href="#" className="text-sm">

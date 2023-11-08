@@ -10,3 +10,41 @@
 .card:hover img {
   transform: translateY(5px);
 }
+
+.about-link {
+  color: #2997ff;
+}
+
+.card-pseudo {
+  font-family: 'Black Ops One';
+}
+
+.designed {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to right, #FFF, rgb(226 232 240), transparent) 1;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.footer-item {
+  position: relative;
+  transition: all 0.35s ease-in-out;
+}
+
+.footer-item::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #9ca3af;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out, transform 0.5s ease-in-out, transition-delay 0.3s;
+}
+
+.footer-item:hover::before {
+  width: 100%;
+}
