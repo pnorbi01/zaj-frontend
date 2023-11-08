@@ -1,14 +1,31 @@
 import React from "react";
 import logo from "./images/logo.png";
+import { DotIcon } from "./DotIcon";
 
 function Footer() {
     return (
         <section className="flex flex-col justify-center items-center w-full p-3">
             <div className="flex flex-row justify-center items-flex-start flex-wrap w-full p-3 gap-3">
-                <div className="flex flex-row justify-center items-start p-3 w-3/12">
-                    <img src={logo} alt="ZAJ logo" width={50} height={50} />
+                <div className="footer-card flex flex-col justify-between items-center p-3 w-3/12">
+                    <div className="copy-right flex flex-row justify-start items-center gap-2 w-full">
+                        <img src={logo} alt="ZAJ logo" width={50} height={50} />
+                        <span className="text-xs text-gray-400">© 2023 - Sva prava zadržana.</span>
+                    </div>
+                    <div className="created-by flex flex-row justify-start items-center w-full gap-2">
+                        <DotIcon size={18} />
+                        <span className="text-xs text-gray-400">Powered by: <a href="https://www.ranwebdesign.xyz" className="font-bold hover:underline">RAN Webdesign</a></span>
+                    </div>
+                    <div className="socials flex flex-row justify-start items-end w-full">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            height="1.5em" 
+                            viewBox="0 0 512 512"
+                        >
+                            <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" fill="#C5C5C5"/>
+                        </svg>
+                    </div>
                 </div>
-                <div className="flex flex-row justify-center items-start p-3 w-3/12">
+                <div className="footer-card flex flex-row justify-center items-start p-2 w-3/12">
                     <div className="flex flex-col justify-start items-center w-full">
                         <div className="flex flex-row justify-center items-center">
                             <span className="text-lg font-extrabold tracking-[0.02em] bg-gradient-to-br from-black to-stone-500 bg-clip-text text-transparent text-center">Meni sajta</span>
@@ -20,12 +37,12 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-row justify-center items-start p-3 w-3/12">
+                <div className="footer-card flex flex-row justify-center items-start p-2 w-3/12">
                     <div className="flex flex-col justify-start items-center w-full">
                         <div className="flex flex-row justify-center items-center">
                             <span className="text-lg font-extrabold tracking-[0.02em] bg-gradient-to-br from-black to-stone-500 bg-clip-text text-transparent text-center">Kontakt podaci</span>
                         </div>
-                        <div className="flex flex-col justify-start items-start p-3 gap-2">
+                        <div className="contact-element-container flex flex-col justify-start items-start p-3 gap-2">
                             <div className="flex flex-row justify-center items-center gap-2">
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
@@ -49,10 +66,6 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="designed flex flex-row justify-between items-center p-1 pt-3 w-3/4">
-                <span className="text-xs text-gray-400">Powered by: <a href="https://www.ranwebdesign.xyz" className="font-bold hover:underline">RAN Webdesign</a></span>
-                <span className="text-xs text-gray-400">© 2023 ŽAJ BAU - Sva prava zadržana.</span>
             </div>
         </section>
     );

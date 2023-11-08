@@ -48,3 +48,51 @@
 .footer-item:hover::before {
   width: 100%;
 }
+
+@media only screen and (max-width: 1280px)  {
+  .hero-content {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1024px)  {
+  .hero-content {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 820px)  {
+  .hero-content {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-title, .hero-content, .about-content, .card, .contact-content, .contact-desc, .footer-card {
+    width: 100%;
+  }
+
+  .float-element {
+    display: none;
+  }
+
+  .footer-card:last-child .contact-element-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-card:first-child {
+    gap: 1em;
+  }
+
+  .footer-card:first-child .copy-right, .created-by, .socials {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 374px) {
+  .card-container {
+    width: 100%;
+  }
+}

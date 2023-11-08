@@ -4,7 +4,7 @@ function About() {
     return (
         <section className="flex flex-row justify-center items-start w-full p-3 relative">
         <div className="before:content-[''] rounded-lg absolute -top-28 h-24 w-0.5 bg-gradient-to-b from-white to-warning-500"></div>
-            <div className="flex flex-col justify-center items-center w-2/3 p-5">
+            <div className="about-content flex flex-col justify-center items-center w-2/3 p-5">
                 <span className="text-xl text-gray-600 text-center">Bavimo se postavljanjem gipsanih zidova, podnih obloga i drugim sličnim uslugama. Zamislite to - mi to isporučujemo. <span className="font-bold text-warning text-xl">Naš glavni cilj je Vaš uspeh.</span></span>
                 <div className="group flex flex-row justify-center items-center gap-3 mt-5">
                     <span className="about-link text-lg text-gray-600 hover:cursor-pointer">Saznajte više o nama</span>

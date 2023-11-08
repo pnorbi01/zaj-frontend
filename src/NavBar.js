@@ -6,23 +6,16 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Početna",
+    "O Nama",
+    "Kontakt",
   ];
 
   return (
     <Navbar
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className="bg-transparent py-2"
+        className="bg-transparent"
     >
         <NavbarContent className="sm:hidden" justify="start">
             <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
