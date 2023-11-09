@@ -1,22 +1,25 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes as Switch, Route, Navigate  } from 'react-router-dom';
 import NavBar from './NavBar';
-import Hero from './Hero';
+import Home from './Home';
 import About from './About';
-import Project from './Project';
-import Contact from './Contact';
 import Footer from './Footer';
+import Contact from './Contact';
 import './App.css';
 
 function App() {
   return (
     <>
-      <NavBar />
-      <div className="h-screen">
-        <Hero />
-      </div>
-      <About />
-      <Project />
-      <Contact />
-      <Footer />
+      <Router>
+        <NavBar />
+          <Switch>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Switch>
+        <Footer />
+      </Router>
     </>
   );
 }

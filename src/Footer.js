@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./images/logo.png";
-import { DotIcon } from "./DotIcon";
+import { DotIcon } from "./components/icons/DotIcon";
 
 function Footer() {
     return (
@@ -38,11 +38,11 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-card flex flex-row justify-center items-start p-2 w-3/12">
-                    <div className="flex flex-col justify-start items-center w-full">
-                        <div className="flex flex-row justify-center items-center">
+                    <div className="flex flex-col justify-start items-end w-full">
+                        <div className="contact-title flex flex-row justify-center items-center">
                             <span className="text-lg font-extrabold tracking-[0.02em] bg-gradient-to-br from-black to-stone-500 bg-clip-text text-transparent text-center">Kontakt podaci</span>
                         </div>
-                        <div className="contact-element-container flex flex-col justify-start items-start p-3 gap-2">
+                        <div className="contact-element-container flex flex-col justify-start items-end py-3 gap-2">
                             <div className="flex flex-row justify-center items-center gap-2">
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 

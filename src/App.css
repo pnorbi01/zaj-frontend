@@ -56,19 +56,19 @@
 }
 
 @media only screen and (max-width: 1024px)  {
-  .hero-content {
+  .hero-content, .breadcrumbs, .about-container, .faq {
     width: 80%;
   }
 }
 
 @media only screen and (max-width: 820px)  {
-  .hero-content {
+  .hero-content, .breadcrumbs, .about-container, .faq {
     width: 90%;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .hero-title, .hero-content, .about-content, .card, .contact-content, .contact-desc, .footer-card {
+  .hero-title, .hero-content, .about-content, .card, .contact-content, .contact-desc, .footer-card, .breadcrumbs, .about-container, .faq {
     width: 100%;
   }
 
@@ -76,7 +76,8 @@
     display: none;
   }
 
-  .footer-card:last-child .contact-element-container {
+  .footer-card:last-child .contact-element-container, .contact-title {
+    width: 100%;
     justify-content: center;
     align-items: center;
   }

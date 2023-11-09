@@ -1,5 +1,5 @@
 import React from "react";
-import wave from "./images/wave.png";
+import wave from "../../images/wave.png";
 
 function Project() {
     return (

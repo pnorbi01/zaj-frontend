@@ -32,17 +32,17 @@ export default function App() {
                 <img src={logo} alt="ZAJ logo" width={100} height={100} />
             </NavbarBrand>
             <NavbarItem>
-            <Link color="foreground" href="#" className="text-sm">
+            <Link color="foreground" href="/home" className="text-sm">
                 Početna
             </Link>
             </NavbarItem>
             <NavbarItem>
-            <Link href="#" color="foreground" className="text-sm">
+            <Link href="/about" color="foreground" className="text-sm">
                 O Nama
             </Link>
             </NavbarItem>
             <NavbarItem>
-            <Link color="foreground" href="#" className="text-sm">
+            <Link color="foreground" href="/contact" className="text-sm">
                 Kontakt
             </Link>
             </NavbarItem>
