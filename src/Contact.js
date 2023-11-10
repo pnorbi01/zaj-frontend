@@ -6,12 +6,21 @@ import { CheckIcon } from "./components/icons/CheckIcon";
 
 function Contact() {
 
+    const sendEmailApi = process.env.REACT_APP_SEND_MAIL_API_URL;
+    const [isSending, setIsSending] = useState(false);
     const [isInvalidFirstname, setIsInvalidFirstname] = useState(false);
     const [isInvalidLastname, setIsInvalidLastname] = useState(false);
     const [isInvalidEmail, setIsInvalidEmail] = useState(false);
     const [isInvalidSubject, setIsInvalidSubject] = useState(false);
     const [isInvalidMessage, setIsInvalidMessage] = useState(false);
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const [emailDetails, setEmailDetails] = React.useState({
+        firstname: '',
+        lastname: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
 
     function validateForm() {
         const firstname = document.getElementById("firstname").value;
@@ -22,18 +31,58 @@ function Contact() {
 
         let isValid;
 
-        isValid = firstname === "" ? (setIsInvalidFirstname(true), false) : (setIsInvalidFirstname(false), true);
-        isValid = lastname === "" ? (setIsInvalidLastname(true), false) : (setIsInvalidLastname(false), true);
-        isValid = email === "" || !email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) ? (setIsInvalidEmail(true), false) : (setIsInvalidEmail(false), true);
-        isValid = subject === "" ? (setIsInvalidSubject(true), false) : (setIsInvalidSubject(false), true);
-        isValid = message === "" ? (setIsInvalidMessage(true), false) : (setIsInvalidMessage(false), true);
+        let isValidFirstname = firstname === "" ? (setIsInvalidFirstname(true), false) : (setIsInvalidFirstname(false), true);
+        let isValidLastname = lastname === "" ? (setIsInvalidLastname(true), false) : (setIsInvalidLastname(false), true);
+        let isValidEmail = email === "" ? (setIsInvalidEmail(true), false) : (setIsInvalidEmail(false), true);
+        let isValidEmailRegex = email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) ? (setIsInvalidEmail(false), true) : (setIsInvalidEmail(true), false);
+        let isValidSubject = subject === "" ? (setIsInvalidSubject(true), false) : (setIsInvalidSubject(false), true);
+        let isValidMessage = message === "" ? (setIsInvalidMessage(true), false) : (setIsInvalidMessage(false), true);
 
-        if(isValid) {
-            onOpen();
+        if(isValidFirstname && isValidLastname && isValidEmail && isValidEmailRegex && isValidSubject && isValidMessage){
+            return isValid = true;
         }
-
-        return isValid;
+        else {
+            return isValid = false;
+        }
     }
+
+    const sendMail = async () => {
+        if(validateForm()){
+            setIsSending(true);
+            await fetch(sendEmailApi, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(emailDetails),
+            })
+            .then((response) => {
+                if(response.ok) {
+                    onOpen();
+                    setIsSending(false);
+                } 
+                else {
+                    console.log('Error occured');
+                    setIsSending(false);
+                }
+            })
+            .catch((error) => {
+                console.log('Error occured:', error);
+                setIsSending(false);
+            });
+        } else {
+            console.log('From validation failed.')
+            setIsSending(false);
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setEmailDetails({
+          ...emailDetails,
+          [name]: value,
+        });
+    };
 
     return (
         <section className="flex flex-col justify-center items-center w-full p-3">
@@ -58,75 +107,86 @@ function Contact() {
                     <span className="text-center font-display text-gray-500">Pišite nam slanjem popunjene forme ili javite nam se putem kontaktnih informacija na našem veb sajtu.</span>
                 </div>
             </div>
-            <div className="form-container flex flex-col justify-center items-center w-3/5 p-5 shadow-lg rounded-2xl">
+            <div className="form-container flex flex-col justify-center items-center w-3/5 p-5">
                 <div className="flex flex-col justify-center items-start w-full p-1">
                     <span className="font-bold text-2xl bg-gradient-to-br from-black to-stone-500 bg-clip-text text-transparent">Pišite nam.</span>
                     <span className="font-display text-sm text-gray-400">Sva polja mora da bude popunjena da bih mogli kontaktirali nas!</span>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full p-1">
-                    <form className="flex flex-col justify-center items-center w-full gap-4">
+                    <form id="form" className="flex flex-col justify-center items-center w-full gap-4">
                         <div className="input-wrapper flex flex-row justify-center items-center w-full gap-2">
                             <Input
                                 isInvalid={isInvalidFirstname}
+                                value={emailDetails.firstname}
                                 isRequired
-                                isClearable
                                 type="text"
                                 label="Ime"
                                 placeholder="Unesi svoju ime"
-                                color={isInvalidFirstname ? "danger" : "success"}
+                                color={isInvalidFirstname ? "danger" : "default"}
                                 className="input w-1/2"
+                                onChange={handleInputChange}
                                 id="firstname"
+                                name="firstname"
                             />
                             <Input
                                 isInvalid={isInvalidLastname}
+                                value={emailDetails.lastname}
                                 isRequired
-                                isClearable
                                 type="text"
                                 label="Prezime"
                                 placeholder="Unesi svoju prezime"
-                                color={isInvalidLastname ? "danger" : "success"}
+                                color={isInvalidLastname ? "danger" : "default"}
                                 className="input w-1/2"
+                                onChange={handleInputChange}
                                 id="lastname"
+                                name="lastname"
                             />
                         </div>
                         <div className="input-wrapper flex flex-row justify-center items-center w-full gap-2">
                             <Input
                                 isInvalid={isInvalidEmail}
+                                value={emailDetails.email}
                                 isRequired
-                                isClearable
                                 type="email"
                                 label="Email"
                                 placeholder="Unesi svoju email"
-                                color={isInvalidEmail ? "danger" : "success"}
+                                color={isInvalidEmail ? "danger" : "default"}
                                 className="input w-1/2"
+                                onChange={handleInputChange}
                                 id="email"
+                                name="email"
                             />
                             <Input
                                 isInvalid={isInvalidSubject}
+                                value={emailDetails.subject}
                                 isRequired
-                                isClearable
                                 type="text"
                                 label="Naslov"
                                 placeholder="Unesi naslov"
-                                color={isInvalidSubject ? "danger" : "success"}
+                                color={isInvalidSubject ? "danger" : "default"}
                                 className="input w-1/2"
+                                onChange={handleInputChange}
                                 id="subject"
+                                name="subject"
                             />
                         </div>
                         <div className="flex flex-row justify-center items-center w-full">
                             <Textarea
                                 isInvalid={isInvalidMessage}
+                                value={emailDetails.message}
                                 isRequired
                                 label="Poruka"
                                 labelPlacement="inside"
                                 placeholder="Unesi svoju poruku"
-                                color={isInvalidMessage ? "danger" : "success"}
+                                color={isInvalidMessage ? "danger" : "default"}
                                 className="col-span-12 md:col-span-6 mb-6 md:mb-0"
+                                onChange={handleInputChange}
                                 id="message"
+                                name="message"
                             />
                         </div>
                         <div className="flex flex-row justify-center items-center w-full">
-                            <Button className="contact-button w-1/2 font-bold text-sm bg-warning-400 shadow-md hover:cursor-pointer hover:bg-warning-300 hover:text-gray-500 hover:tracking-wide transition-all" onPress={validateForm}>
+                            <Button id="button" isLoading={`${isSending ? 'true' : ''}`} className="contact-button w-1/2 font-bold text-sm bg-warning-400 shadow-md hover:cursor-pointer hover:bg-warning-300 hover:text-gray-500 hover:tracking-wide transition-all" onClick={() => sendMail()}>
                                 Pošalji
                             </Button>
                         </div>

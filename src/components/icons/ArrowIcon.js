@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ArrowIcon = ({ }) => {
+export const ArrowIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" 
         height="1em" 
