@@ -68,12 +68,16 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .hero-title, .hero-content, .about-content, .card, .contact-content, .contact-desc, .footer-card, .breadcrumbs, .about-container, .faq {
+  .hero-title, .hero-content, .about-content, .card, .contact-content, .contact-desc, .footer-card, .breadcrumbs, .about-container, .faq, .form-container, .input, .contact-button {
     width: 100%;
   }
 
   .float-element {
     display: none;
+  }
+
+  .input-wrapper {
+    flex-wrap: wrap;
   }
 
   .footer-card:last-child .contact-element-container, .contact-title {
