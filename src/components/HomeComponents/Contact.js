@@ -10,7 +10,7 @@ function Contact() {
                 <span className="text-3xl font-extrabold tracking-[0.02em] bg-gradient-to-br from-black to-stone-500 bg-clip-text text-transparent text-center">Kontakt</span>
                 <div className="contact-content flex flex-row justify-center items-center w-2/3 h-full p-3">
                     <div className="contact-desc flex flex-row justify-center items-center w-2/3">
-                        <span className="text-xl font-extrabold tracking-[0.02em] bg-gradient-to-br from-black to-stone-500 bg-clip-text text-transparent text-center">Tražite kvalitetan i pristupačan tim za vaš sledeći građevinski projekat?</span>
+                        <span className="text-md font-medium text-gray-500 text-center">Tražite kvalitetan i pristupačan tim za vaš sledeći građevinski projekat?</span>
                     </div>
                 </div>
                 <div className="flex flex-row justify-center items-center w-full p-3">

@@ -86,7 +86,7 @@ function Contact() {
 
     return (
         <section className="flex flex-col justify-center items-center w-full p-3">
-            <div className="fixed h-screen w-full bg-gradient-to-br from-white via-white to-warning-100 -z-10"></div>
+        <div className="fixed h-screen w-full bg-gradient-to-br from-slate-200 via-white to-warning-100 top-0 left-0 -z-10"></div>
             <div className="breadcrumbs flex flex-row justify-start items-center w-2/3 py-3 gap-1">
                 <div className="breadcrumb flex flex-row justify-center items-center gap-1">
                     <HomeIcon />

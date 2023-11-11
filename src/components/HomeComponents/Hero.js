@@ -8,8 +8,8 @@ import {Link} from "@nextui-org/react";
 
 function Hero() {
     return (
-        <section className="flex flex-row justify-center items-center h-full w-full text-slate-100 absolute top-0 left-0">
-            <div className="fixed h-screen w-full bg-gradient-to-br from-slate-100 via-white to-warning-100 -z-10"></div>
+        <section className="hero flex flex-row justify-center items-center h-full w-full text-slate-100 absolute top-0 left-0">
+            <div className="fixed h-screen w-full bg-gradient-to-br from-slate-200 via-white to-warning-100 -z-10"></div>
             <div className="hero-content flex flex-col justify-center items-center w-1/2 z-10 gap-4 relative">
                 <div className="float-element animate-[float_2s_ease-in-out_infinite] flex flex-col justify-center items-center p-3 bg-warning-200 rounded-full absolute top-0 left-0 shadow-md border border-gray-300" style={{animationDelay: '0.15s', animationFillMode: 'forwards'}}>
                     <img src={trowel} width={40} height={40} alt="Trowel" />

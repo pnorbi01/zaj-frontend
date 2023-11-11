@@ -1,15 +1,26 @@
 import React from "react";
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem} from "@nextui-org/react";
+import { Link } from 'react-router-dom';
 import logo from "./images/logo.png";
 
 export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Početna",
-    "O Nama",
-    "Kontakt",
-  ];
+    const menuItems = {
+        'home': 'Početna',
+        'about': 'O Nama',
+        'contact': 'Kontakt'
+    }
+
+    const handleClickOnPhone = (event, href) => {
+        setIsMenuOpen(false);
+
+        setTimeout(() => {
+            window.location.href = href;
+          }, 500);
+
+        event.preventDefault();
+    };
 
   return (
     <Navbar
@@ -32,37 +43,38 @@ export default function App() {
                 <img src={logo} alt="ZAJ logo" width={100} height={100} />
             </NavbarBrand>
             <NavbarItem>
-            <Link color="foreground" href="/home" className="text-sm">
+            <Link color="foreground" to="/home" className="text-sm focus:text-warning-500">
                 Početna
             </Link>
             </NavbarItem>
             <NavbarItem>
-            <Link href="/about" color="foreground" className="text-sm">
+            <Link to="/about" color="foreground" className="text-sm focus:text-warning-500">
                 O Nama
             </Link>
             </NavbarItem>
             <NavbarItem>
-            <Link color="foreground" href="/contact" className="text-sm">
+            <Link color="foreground" to="/contact" className="text-sm focus:text-warning-500">
                 Kontakt
             </Link>
             </NavbarItem>
         </NavbarContent>
 
         <NavbarMenu>
-            {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
+        {Object.keys(menuItems).map((key, index) => (
+            <NavbarMenuItem key={`${key}-${index}`}>
                 <Link
-                className="w-full"
-                color={
-                    index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-                }
-                href="#"
-                size="lg"
+                    className="w-full font-bold"
+                    color={
+                        index === 2 ? "foreground" : index === Object.keys(menuItems).length - 1 ? "danger" : "foreground"
+                    }
+                    href={`/${key}`}
+                    size="lg"
+                    onClick={(e) => handleClickOnPhone(e, key)}
                 >
-                {item}
+                    {menuItems[key]}
                 </Link>
             </NavbarMenuItem>
-            ))}
+        ))}
         </NavbarMenu>
     </Navbar>
   );
